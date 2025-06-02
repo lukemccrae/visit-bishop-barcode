@@ -40,7 +40,7 @@ export const downloadBarcode = (props: DownloadBarcodeProps) => {
             const svgUrl = URL.createObjectURL(svgBlob);
 
             // Use itemName if not empty, otherwise barcodeText
-            const label = props.itemName.trim() === '' ? props.barcodeText + '-' : props.itemName + '-';
+            const label = props.itemName !== "" ? props.itemName : props.barcodeText;
 
             const img = new window.Image();
             // Prevent CORS issues if possible:
@@ -74,7 +74,7 @@ export const downloadBarcode = (props: DownloadBarcodeProps) => {
                         const url = URL.createObjectURL(blob);
                         const link = document.createElement("a");
                         link.href = url;
-                        link.download = `${label}barcode.png`;
+                        link.download = `${props.barcodeText}.png`;
                         document.body.appendChild(link);
                         link.click();
                         document.body.removeChild(link);
