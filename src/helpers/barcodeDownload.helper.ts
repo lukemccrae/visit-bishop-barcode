@@ -1,6 +1,6 @@
 interface DownloadBarcodeProps {
     barcodeText: string;
-    barcodeRef: React.RefObject<HTMLDivElement> | null;
+    barcodeRef: React.RefObject<HTMLDivElement | null>;
     itemName: string;
 }
 
